@@ -3,7 +3,6 @@ const {body, validationResult} = require('express-validator');
 
 const validateLang = [
     body('name').trim().notEmpty().withMessage("Name is required").bail()
-    .isAlpha().withMessage("Name must only contain letters.")
     .isLength({min:1, max:50}).withMessage("Name must be between 1 and 50 characters"),
 
     body("first_release").trim().notEmpty().withMessage("First Release is required").bail()
