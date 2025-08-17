@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <Title><%=framework.name%></Title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="details-container">
+            <h1 class="details-header"><%= framework.name %></h1>
+    
+            <div class="details-meta">
+              <div class="meta-item">
+                <div class="meta-label">Release Year</div>
+                <div class="meta-value"><%= framework.release_year %></div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Description</div>
+                <div class="meta-value"><%= framework.description %></div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Author</div>
+                <div class="meta-value"><%= framework.author_name %></div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Language</div>
+                <div class="meta-value"><%= framework.language_name %></div>
+              </div>
+            </div>
+    
+            <div class="links">
+                <a href="/framework" class="back-btn">← Back to list</a>
+                <div class="actions">
+                    <a href="/framework/<%= framework.id%>/delete" class="delete-btn">Delete</a>
+                    <a href="/framework/<%= framework.id%>/edit" class="edit-btn">Edit</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+  

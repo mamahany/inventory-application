@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Language</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="form-container">
+    <h1>Add a New Language</h1>
+    <%- include("../partials/errors.ejs") %>
+    <form action="/language/new" method="POST" class="form-card">
+      <label for="name" class="required">Name</label>
+      <input type="text" id="name" name="name" placeholder="e.g. JavaScript" required value="<%= language ? language.name : '' %>">
+
+      <label for="first_release" class="required">First Release</label>
+      <input type="number" id="first_release" name="first_release" placeholder="e.g. 1991" min="1950" max="2025" required value="<%= language ? language.first_release : '' %>">
+
+      <label for="paradigm">Paradigm</label>
+      <input type="text" id="paradigm" name="paradigm" placeholder="e.g. Object-Oriented, Functional" value="<%= language ? language.paradigm : '' %>">
+
+      <label for="author_id">Author</label>
+      <select id="author_id" name="author_id">
+        <option value="" disabled selected>Select an author</option>
+        <% authors.forEach(author => { %>
+          <option value="<%= author.id %>" <%= author.id == language.author_id ? "selected" : "" %>><%= author.name %></option>
+        <% }) %>
+      </select>
+
+      <button type="submit" class="btn-primary">Create</button>
+    </form>
+  </main>
+</body>
+</html>

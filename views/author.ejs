@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <Title><%=author.name%></Title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="details-container">
+            <h1 class="details-header"><%= author.name %></h1>
+            <div class="links">
+                <a href="/author" class="back-btn">← Back to list</a>
+                <div class="actions">
+                    <a href="/author/<%= author.id%>/delete" class="delete-btn">Delete</a>
+                    <a href="/author/<%= author.id%>/edit" class="edit-btn">Edit</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

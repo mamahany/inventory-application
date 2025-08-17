@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Programming Languages</title>
+</head>
+<body>
+    <% if(languages){%>
+    <main class="main-grid">
+        <% languages.forEach(lang =>{%>
+            <a href="/language/<%= lang.id%>">
+                <div class="card">
+                    <h2><%= lang.name %></h2>
+                </div>
+            </a>
+        <%})%>
+        <a class="btn-primary" href="/language/new">+ New Language</a>
+    </main>
+    <%}else{%>
+        <h1>No languages yet.</h1>
+    <%}%>
+</body>
+</html>

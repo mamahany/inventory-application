@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Framework</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="form-container">
+    <h1>Add a New Framework</h1>
+    <%- include("../partials/errors.ejs") %>
+    <form action="/framework/new" method="POST" class="form-card">
+      <label for="name" class="required">Name</label>
+      <input type="text" id="name" name="name" placeholder="e.g. Express" required value="<%= framework ? framework.name : '' %>">
+
+      <label for="release_year" class="required">Release Year</label>
+      <input type="number" id="release_year" name="release_year" placeholder="e.g. 1991" min="1950" max="2025" required value="<%= framework ? framework.release_year : '' %>">
+
+      <label for="description">Description</label>
+      <textarea rows="5" name="description" id="description" placeholder="e.g. High-level web framework"><%= framework ? framework.description : '' %></textarea>
+
+      <label for="author_id">Author</label>
+      <select id="author_id" name="author_id">
+        <option value="" disabled selected>Select an author</option>
+        <% authors.forEach(author => { %>
+          <option value="<%= author.id %>" <%= author.id == framework.author_id ? "selected" : "" %>><%= author.name %></option>
+        <% }) %>
+      </select>
+
+      <label for="language_id" class="required">Language</label>
+      <select id="language_id" name="language_id" required>
+        <option value="" disabled selected>Select a language</option>
+        <% languages.forEach(language => { %>
+          <option value="<%= language.id %>" <%= language.id == framework.language_id ? "selected" : "" %>><%= language.name %></option>
+        <% }) %>
+      </select>
+
+      <button type="submit" class="btn-primary">Create</button>
+    </form>
+  </main>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <Title><%=language.name%></Title>
+        <link rel="stylesheet" href="/styles.css">
+    </head>
+    <body>
+        <div class="details-container">
+            <h1 class="details-header"><%= language.name %></h1>
+    
+            <div class="details-meta">
+              <div class="meta-item">
+                <div class="meta-label">First Released</div>
+                <div class="meta-value"><%= language.first_release %></div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Paradigm</div>
+                <div class="meta-value"><%= language.paradigm %></div>
+              </div>
+              <div class="meta-item">
+                <div class="meta-label">Author</div>
+                <div class="meta-value"><%= language.author_name %></div>
+              </div>
+            </div>
+    
+            <div class="links">
+                <a href="/language" class="back-btn">← Back to list</a>
+                <div class="actions">
+                    <a href="/language/<%= language.id%>/delete" class="delete-btn">Delete</a>
+                    <a href="/language/<%= language.id%>/edit" class="edit-btn">Edit</a>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+  
